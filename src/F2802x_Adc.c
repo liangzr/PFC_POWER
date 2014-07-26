@@ -81,6 +81,23 @@ void InitAdcAio()
     EDIS;
 }
 
+//---------------------------------------------------------------------------
+// ConfigAdc:
+//---------------------------------------------------------------------------
+// This function is Config ADC
+//
+// NOTE: ADC CONFIG IS DIFFERENT ON 2802x DEVICES COMPARED TO OTHER 28X DEVICES
+//
+void ConfigAdc(void)
+{
+    EALLOW;
+    //通道0
+    AdcRegs.ADCSOC0CTL.bit.CHSEL = 0;
+    AdcRegs.ADCSOC0CTL.bit.TRIGSEL = 1;
+    AdcRegs.ADCSOC0CTL.bit.ACQPS = 6;
+
+    EDIS;
+}
 /* AdcoffsetSelfCal-
    This function re-calibrates the ADC zero offset error by converting the VREFLO reference with
    the ADC and modifying the ADCOFFTRIM register. VREFLO is sampled by the ADC using an internal

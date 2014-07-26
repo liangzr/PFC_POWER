@@ -21,6 +21,7 @@ extern "C" {
 /*---- shared global function prototypes -----------------------------------*/
 extern void InitAdc(void);
 extern void InitAdcAio(void);
+extern void ConfigAdc(void);
 extern void AdcOffsetSelfCal(void);
 extern void AdcChanSelect(Uint16 ch_no);
 extern Uint16 AdcConversion (void);

@@ -21,9 +21,22 @@
 //
 void InitEPwm(void)
 {
-   // Initialize EPwm1/2/3/4
-
+	EPwm1Regs.TBPRD = 999;
+	EPwm1Regs.TBPHS.half.TBPHS = 0;
+	EPwm1Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
+	EPwm1Regs.TBCTL.bit.PHSEN = TB_DISABLE;
+	EPwm1Regs.TBCTL.bit.PRDLD = TB_SHADOW;
+	EPwm1Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_DISABLE;
+    EPwm1Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
+    EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
+    EPwm1Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
+    EPwm1Regs.AQCTLA.bit.PRD = AQ_CLEAR;
+    EPwm1Regs.AQCTLA.bit.CAU = AQ_SET;
+    EPwm1Regs.AQCTLB.bit.PRD = AQ_SET;
+    EPwm1Regs.AQCTLB.bit.CBU = AQ_CLEAR;
    //tbd...
+    EPwm1Regs.CMPA.half.CMPA = 300;
+    EPwm1Regs.CMPB = 300;
 
 }
 

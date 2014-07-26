@@ -40,8 +40,7 @@ void InitGpio(void)
    GpioCtrlRegs.GPBDIR.all = 0x0000;      // GPIO32-GPIO34 are inputs
    GpioCtrlRegs.AIODIR.all = 0x0000;      // AIO2,4,6,19,12,14 are digital inputs
 
-   GpioCtrlRegs.GPADIR.bit.GPIO0 = 1;
-   GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;
+
    // Each input can have different qualification
    // a) input synchronized to SYSCLKOUT
    // b) input qualified by a sampling window
